@@ -232,7 +232,7 @@ const theme = createTheme({
     defaults: {
       fontFamily: "bricolage",
       fontSize: normalize(15),
-      color: "neutral200",
+      color: "neutral100",
       letterSpacing: 0.6,
     },
   },

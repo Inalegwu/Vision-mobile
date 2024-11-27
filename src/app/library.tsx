@@ -1,6 +1,6 @@
 import { normalize } from "@/utils/functions";
 import { Box, Text } from "@atoms";
-import { Container, Icon } from "@components";
+import { Container, Icon, TouchableOpacity } from "@components";
 
 export default function Page() {
   return (
@@ -9,36 +9,36 @@ export default function Page() {
         My Library
       </Text>
       <Box width="100%" borderWidth={0.2} borderColor="neutral200">
-        <Box
+        <TouchableOpacity
+          activeOpacity={0.9}
           borderTopLeftRadius={2}
           borderTopRightRadius={2}
           flexDirection="row"
           alignItems="center"
-          backgroundColor="neutral800"
+          backgroundColor="neutral900"
           width="100%"
           padding={4}
           justifyContent="space-between"
         >
           <Text fontSize={normalize(14)}>On My Device</Text>
           <Icon name="ChevronRight" size={4} />
-        </Box>
-        <Box
+        </TouchableOpacity>
+        <TouchableOpacity
           flexDirection="row"
           alignItems="center"
-          backgroundColor="neutral800"
+          backgroundColor="neutral900"
           width="100%"
+          activeOpacity={0.9}
           padding={4}
           justifyContent="space-between"
-          borderTopWidth={0.25}
-          borderTopColor="neutral700"
+          borderTopWidth={0.6}
+          borderTopColor="neutral800"
           borderBottomLeftRadius={2}
           borderBottomRightRadius={2}
         >
-          <Text fontSize={normalize(14)} color="neutral200">
-            From A Server
-          </Text>
+          <Text fontSize={normalize(14)}>From A Server</Text>
           <Icon name="ChevronRight" size={4} />
-        </Box>
+        </TouchableOpacity>
       </Box>
       <Box marginTop={3} />
       <Text fontSize={normalize(32)}>My Servers</Text>

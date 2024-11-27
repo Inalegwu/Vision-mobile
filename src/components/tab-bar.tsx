@@ -8,8 +8,8 @@ import TouchableOpacity from "./touchable-opacity";
 const TabBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
   return (
     <Box
-      backgroundColor="neutral900"
-      borderTopColor="neutral800"
+      backgroundColor="black"
+      borderTopColor="neutral900"
       borderTopWidth={1}
       flexDirection="row"
       alignItems="center"
