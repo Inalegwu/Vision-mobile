@@ -4,9 +4,10 @@ import pkg from "./package.json";
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: "SpawnPoint",
-  slug: "spawn-point",
+  name: "Vision",
+  slug: "vision",
   version: pkg.version,
+  newArchEnabled: true,
   extra: {
     ...ClientEnv,
   },

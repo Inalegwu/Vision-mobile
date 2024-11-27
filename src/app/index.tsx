@@ -1,33 +1,24 @@
 import { normalize } from "@/utils/functions";
-import { Text } from "@atoms";
+import { Box, Text } from "@atoms";
 import { Container, Icon, TouchableOpacity } from "@components";
 import React from "react";
 
 export default function Page() {
   return (
-    <Container gap={2} alignItems="flex-start" justifyContent="center">
-      <Text fontSize={normalize(24)}>SpawnPoint</Text>
-      <Text fontSize={normalize(20)}>
-        The Ideal Starting Point for React Native Applications Powered by Expo
-      </Text>
-      <TouchableOpacity
-        width="100%"
-        paddingHorizontal={3}
-        paddingVertical={3}
-        borderRadius={5}
-        alignItems="center"
-        justifyContent="center"
+    <Container gap={2} alignItems="flex-start">
+      <Box
         flexDirection="row"
-        gap={2}
-        backgroundColor="blue300"
-        activeOpacity={0.3}
-        marginTop={4}
+        alignItems="center"
+        justifyContent="space-between"
+        width="100%"
       >
-        <Icon name="Clock1" size={3} color="blue600" />
-        <Text color="blue600" fontSize={normalize(13)}>
-          This is a custom Touchable Opacity
+        <Text color="neutral200" fontSize={normalize(26)}>
+          Currently Reading
         </Text>
-      </TouchableOpacity>
+        <TouchableOpacity flexDirection="row">
+          <Icon name="Menu" color="neutral200" size={6} />
+        </TouchableOpacity>
+      </Box>
     </Container>
   );
 }
