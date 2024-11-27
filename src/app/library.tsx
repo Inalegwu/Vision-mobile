@@ -1,47 +1,40 @@
+import { comics } from "@/api/routers/comics";
 import { normalize } from "@/utils/functions";
 import { Box, Text } from "@atoms";
-import { Container, Icon, TouchableOpacity } from "@components";
+import { Container, Icon, ScrollView, TouchableOpacity } from "@components";
 
 export default function Page() {
+  const { data, isLoading } = comics.new.useQuery();
+
   return (
     <Container alignItems="flex-start" gap={3}>
-      <Text color="neutral200" fontSize={normalize(38)}>
-        My Library
-      </Text>
-      <Box width="100%" borderWidth={0.2} borderColor="neutral200">
-        <TouchableOpacity
-          activeOpacity={0.9}
-          borderTopLeftRadius={2}
-          borderTopRightRadius={2}
-          flexDirection="row"
-          alignItems="center"
-          backgroundColor="neutral900"
-          width="100%"
-          padding={4}
-          justifyContent="space-between"
-        >
-          <Text fontSize={normalize(14)}>On My Device</Text>
-          <Icon name="ChevronRight" size={4} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          flexDirection="row"
-          alignItems="center"
-          backgroundColor="neutral900"
-          width="100%"
-          activeOpacity={0.9}
-          padding={4}
-          justifyContent="space-between"
-          borderTopWidth={0.6}
-          borderTopColor="neutral800"
-          borderBottomLeftRadius={2}
-          borderBottomRightRadius={2}
-        >
-          <Text fontSize={normalize(14)}>From A Server</Text>
-          <Icon name="ChevronRight" size={4} />
-        </TouchableOpacity>
+      <Box
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        width="100%"
+      >
+        <Text fontSize={normalize(30)}>My Library</Text>
+        <Box alignItems="center" justifyContent="center">
+          <Icon name="HardDriveDownload" size={5} color="blue500" />
+        </Box>
       </Box>
-      <Box marginTop={3} />
-      <Text fontSize={normalize(32)}>My Servers</Text>
+      <ScrollView>
+        {isLoading && <Text>Loading</Text>}
+
+        <Text>{JSON.stringify(data, null, 2)}</Text>
+      </ScrollView>
+      <TouchableOpacity
+        backgroundColor="blue500"
+        position="absolute"
+        zIndex={4}
+        padding={4}
+        bottom={10}
+        right={10}
+        borderRadius="full"
+      >
+        <Icon name="Plus" size={6} />
+      </TouchableOpacity>
     </Container>
   );
 }

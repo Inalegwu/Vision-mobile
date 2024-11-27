@@ -14,12 +14,12 @@ const TabBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
       flexDirection="row"
       alignItems="center"
       justifyContent="space-evenly"
-      gap={3}
+      // gap={3}
     >
       {state.routes.map((route, idx) => {
         const isFocused = state.index === idx;
 
-        const color = isFocused ? "neutral200" : "neutral500";
+        const color = isFocused ? "blue300" : "neutral500";
 
         const onPress = () => {
           const evt = navigation.emit({
@@ -53,25 +53,33 @@ const TabBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
             justifyContent="center"
             activeOpacity={0.9}
             gap={2}
+            flex={1}
           >
             {route.name === "index" ? (
               <>
                 <Icon name="House" size={5} color={color} />
-                <Text color={color} fontSize={normalize(13)}>
+                <Text color={color} fontSize={normalize(12)}>
                   Home
+                </Text>
+              </>
+            ) : route.name === "new" ? (
+              <>
+                <Icon name="Newspaper" size={5} color={color} />
+                <Text textAlign="center" fontSize={normalize(12)} color={color}>
+                  New
                 </Text>
               </>
             ) : route.name === "library" ? (
               <>
                 <Icon name="Library" size={5} color={color} />
-                <Text fontSize={normalize(13)} color={color}>
+                <Text fontSize={normalize(12)} color={color}>
                   Library
                 </Text>
               </>
             ) : route.name === "settings" ? (
               <>
                 <Icon name="Settings" size={5} color={color} />
-                <Text fontSize={normalize(13)} color={color}>
+                <Text fontSize={normalize(12)} color={color}>
                   Settings
                 </Text>
               </>
