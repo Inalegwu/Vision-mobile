@@ -8,12 +8,13 @@ import TouchableOpacity from "./touchable-opacity";
 const TabBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
   return (
     <Box
-      backgroundColor="neutral800"
-      borderTopColor="neutral600"
-      borderTopWidth={0.2}
+      backgroundColor="neutral900"
+      borderTopColor="neutral800"
+      borderTopWidth={1}
       flexDirection="row"
       alignItems="center"
       justifyContent="space-evenly"
+      gap={3}
     >
       {state.routes.map((route, idx) => {
         const isFocused = state.index === idx;
